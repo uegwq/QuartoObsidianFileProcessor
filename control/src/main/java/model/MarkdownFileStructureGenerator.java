@@ -65,8 +65,8 @@ public class MarkdownFileStructureGenerator {
                     return FileVisitResult.CONTINUE;
                 }
 
-                // Bearbeite und kopiere nur .md Dateien
-                if (file.toString().endsWith(".md") || file.toString().endsWith(".png") || file.toString().endsWith(".jpg")) {
+                // Bearbeite und kopiere nur .md Dateien ODER .qmd dateien
+                if (file.toString().endsWith(".qmd") || file.toString().endsWith(".md") || file.toString().endsWith(".png") || file.toString().endsWith(".jpg")) {
                     copyFile(file);
                 }
                 return FileVisitResult.CONTINUE;
@@ -99,7 +99,7 @@ public class MarkdownFileStructureGenerator {
         Files.walkFileTree(editingPath, new SimpleFileVisitor<>() {
             @Override
             public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
-                if (file.toString().endsWith(".md")) {
+                if (file.toString().endsWith(".md") || file.toString().endsWith(".qmd")) {
                     editFile(file);
                     feedbackObserver.notify("[info] editing file: " + file.toString());
                 }
