@@ -4,7 +4,7 @@ name: Continuous Deployment
 on:
   push:
     branches:
-      - main  # Trigger the workflow on pushes to the main branch
+      - master  # Trigger the workflow on pushes to the main branch
 
 jobs:
   build:
@@ -19,10 +19,10 @@ jobs:
         with:
           java-version: '22'
 
-      - name: Build with Maven
-        run: mvn clean install
+      - name: Build and package with Maven
+        run: mvn clean install package
 
       - name: Execute SuperMain
-        run: java -cp control-1.0-SNAPSHOT.jar controler.SuperMain ui--false
+        run: java -cp control/target/control-1.0-SNAPSHOT.jar controler.SuperMain ui--false
         # Replace `target/your-artifact-name.jar` with the path to the built JAR file
         # Replace `/path/to/target/directory` with the actual path where you want to generate `exportFiles`
