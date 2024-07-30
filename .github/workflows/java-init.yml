@@ -18,6 +18,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: '22'
+          distribution: 'temurin'  # Specify the JDK distribution
 
       - name: Build and package with Maven
         run: mvn clean install package
