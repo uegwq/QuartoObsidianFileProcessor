@@ -22,7 +22,7 @@ public class MarkdownFileStructureGenerator {
     public void generateFileStructure(String path) throws InvalidPathException, IOException {
         feedbackObserver.notify("processing path: <" + path + ">");
         statingPath = Paths.get(path);
-        writingRootPath = Paths.get(path + "\\exportFiles");
+        writingRootPath = Paths.get(path + "/exportFiles");
         markdownFileNamesWithPath = new HashMap<>();
         try {
             if (Files.exists(writingRootPath)) {
