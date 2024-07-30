@@ -48,7 +48,7 @@ public class MarkdownFileStructureGenerator {
             }
 
             writingRootPath.toFile().mkdir();
-            feedbackObserver.notify("[info] Added new /_exportFiles directory");
+            feedbackObserver.notify("[info] Added new /_exportFiles directory at " + Files.getFileStore(writingRootPath).toString());
         } catch (SecurityException _) {
             feedbackObserver.notify("[warning] /_exportFiles couldnt be created");
         }
