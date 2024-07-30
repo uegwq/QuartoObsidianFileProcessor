@@ -27,6 +27,6 @@ jobs:
           cd ..
 
       - name: Execute SuperMain
-        run: java -cp control/target/control-1.0-SNAPSHOT.jar controler.SuperMain ui--false
+        run: java -cp control/target/control-1.0-SNAPSHOT.jar controler.SuperMain testBuild
         # Replace `target/your-artifact-name.jar` with the path to the built JAR file
         # Replace `/path/to/target/directory` with the actual path where you want to generate `exportFiles`
