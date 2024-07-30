@@ -100,8 +100,8 @@ public class MarkdownFileStructureGenerator {
             @Override
             public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
                 if (file.toString().endsWith(".md") || file.toString().endsWith(".qmd")) {
-                    editFile(file);
                     feedbackObserver.notify("[info] editing file: " + file.toString());
+                    editFile(file);
                 }
 
                 return FileVisitResult.CONTINUE;
@@ -116,6 +116,7 @@ public class MarkdownFileStructureGenerator {
         try (BufferedReader reader = new BufferedReader(new FileReader(inputFilePath)); BufferedWriter writer = new BufferedWriter(new FileWriter(outputFilePath))) {
             String line;
             while ((line = reader.readLine()) != null) {
+                boolean madeChanges = false;
                 if (line.equals("TARGET DECK")) {
                     reader.readLine();
                     reader.readLine();
@@ -125,14 +126,15 @@ public class MarkdownFileStructureGenerator {
                     writer.newLine();
                     writer.newLine();
                     reader.readLine();
+                    feedbackObserver.notify("[into] made changes according to the TARGET DECK templated formerly used by anki");
                     continue;
                 }
                 if (line.equals("<!--IGNORED_FILE-->")) {
+                    feedbackObserver.notify("[info] file ignored");
                     return;
                 }
 
                 if (line.contains("[[")) {
-
                     // Hier folgt toller regex stuff :).
                     // Basically ersetze ich hier das doofe [[tt]] mit dem coolen stuff
                     Pattern pattern = Pattern.compile("\\[\\[([^\\]]+)\\]\\]");
@@ -142,9 +144,11 @@ public class MarkdownFileStructureGenerator {
                     while (matcher.find()) {
                         String linkText = matcher.group(1); // Extrahiert den Text innerhalb der doppelten eckigen Klammern
                         if (markdownFileNamesWithPath.containsKey(linkText)) {
+                            madeChanges = true;
                             String replacement = "[" + linkText + "](" + markdownFileNamesWithPath.get(linkText) + ")";
                             matcher.appendReplacement(result, Matcher.quoteReplacement(replacement));
                         } else if (linkText.endsWith(".png") || linkText.endsWith(".jpg")) {
+                            madeChanges = true;
                             String replacement = "[](</" + linkText + ">)";
                             matcher.appendReplacement(result, Matcher.quoteReplacement(replacement));
                         } else {
@@ -159,8 +163,11 @@ public class MarkdownFileStructureGenerator {
                 writer.write(line);
                 writer.newLine();
                 if (!line.isEmpty()) {
+                    madeChanges = true;
                     writer.newLine();
                 }
+                feedbackObserver.notify("[info] made changes");
+
             }
         } catch (IOException e) {
             e.printStackTrace();

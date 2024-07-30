@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc0f2746-9dae-45b4-bef8-7d194d4148b2" name="Changes" comment="initial commit" />
+    <list default="true" id="cc0f2746-9dae-45b4-bef8-7d194d4148b2" name="Changes" comment="fixed, that .qmd files are not detected by changing it in the MarkdownFileStructureGenerator.java">
+      <change beforePath="$PROJECT_DIR$/control/src/main/java/model/MarkdownFileStructureGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/control/src/main/java/model/MarkdownFileStructureGenerator.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -196,7 +198,7 @@
       <workItem from="1722160156611" duration="2696000" />
       <workItem from="1722162957186" duration="22856000" />
       <workItem from="1722343257922" duration="703000" />
-      <workItem from="1722343990706" duration="5538000" />
+      <workItem from="1722343990706" duration="6351000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -238,7 +240,23 @@
       <option name="project" value="LOCAL" />
       <updated>1722350089521</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="fixed, that .qmd files are not detected by changing it in the WebsiteSidebarTextGenerator.java">
+      <option name="closed" value="true" />
+      <created>1722364946745</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1722364946746</updated>
+    </task>
+    <task id="LOCAL-00007" summary="fixed, that .qmd files are not detected by changing it in the MarkdownFileStructureGenerator.java">
+      <option name="closed" value="true" />
+      <created>1722365049709</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1722365049709</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -257,7 +275,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
+    <MESSAGE value="fixed, that .qmd files are not detected by changing it in the WebsiteSidebarTextGenerator.java" />
+    <MESSAGE value="fixed, that .qmd files are not detected by changing it in the MarkdownFileStructureGenerator.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed, that .qmd files are not detected by changing it in the MarkdownFileStructureGenerator.java" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
