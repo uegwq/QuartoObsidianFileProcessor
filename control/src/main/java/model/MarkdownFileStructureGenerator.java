@@ -115,8 +115,19 @@ public class MarkdownFileStructureGenerator {
 
         try (BufferedReader reader = new BufferedReader(new FileReader(inputFilePath)); BufferedWriter writer = new BufferedWriter(new FileWriter(outputFilePath))) {
             String line;
+            boolean isInTags = false;
+            boolean madeChanges = false;
             while ((line = reader.readLine()) != null) {
-                boolean madeChanges = false;
+                if (isInTags) {
+                    if (line.equals("<!--/TAGS-->")) {
+                        isInTags = false;
+                        feedbackObserver.notify("[info] done reading tags");
+                    } else {
+                        writer.write(line);
+                        writer.newLine();
+                    }
+                    continue;
+                }
                 if (line.equals("TARGET DECK")) {
                     reader.readLine();
                     reader.readLine();
@@ -132,6 +143,11 @@ public class MarkdownFileStructureGenerator {
                 if (line.equals("<!--IGNORED_FILE-->")) {
                     feedbackObserver.notify("[info] file ignored");
                     return;
+                }
+                if (line.equals("<!--TAGS-->")) {
+                    isInTags = true;
+                    feedbackObserver.notify("[info] started reading tags");
+                    continue;
                 }
 
                 if (line.contains("[[")) {
@@ -166,8 +182,10 @@ public class MarkdownFileStructureGenerator {
                     madeChanges = true;
                     writer.newLine();
                 }
-                feedbackObserver.notify("[info] made changes");
 
+            }
+            if (madeChanges) {
+                feedbackObserver.notify("[info] made changes");
             }
         } catch (IOException e) {
             e.printStackTrace();
