@@ -7,6 +7,10 @@ import java.io.IOException;
 public class SuperMain {
     public static void main(String[] args) throws IOException {
         if (args.length > 0) {
+            if (args[0].equals("testBuild")) {
+                System.out.println("compiled and build successfully");
+                return;
+            }
             if (args[0].equals("ui--false") && args.length == 1) {
                 throw new IllegalArgumentException("wrong input! if please provide the path for processing.");
             }
