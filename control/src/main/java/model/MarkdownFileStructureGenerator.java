@@ -48,7 +48,7 @@ public class MarkdownFileStructureGenerator {
             }
 
             writingRootPath.toFile().mkdir();
-            feedbackObserver.notify("[info] Added new /_exportFiles directory at " + Files.getFileStore(writingRootPath).toString());
+            feedbackObserver.notify("[info] Added new /_exportFiles directory at -" + Files.getFileStore(writingRootPath).toString());
         } catch (SecurityException _) {
             feedbackObserver.notify("[warning] /_exportFiles couldnt be created");
         }
@@ -92,7 +92,7 @@ public class MarkdownFileStructureGenerator {
         markdownFileNamesWithPath.put(fileName.substring(0, fileName.length() - 3),
                 "</" + statingPath.relativize(file).toString().replace("\\", "/") + ">");
 
-        feedbackObserver.notify("[info] Copyed file: " + file.toString());
+        feedbackObserver.notify("[info] Copyed file from <" + file.toString() + ">" + System.lineSeparator() + "to <" + targetPath.toString() + ">");
     }
 
     public void editAllFiles(Path editingPath) throws IOException {
