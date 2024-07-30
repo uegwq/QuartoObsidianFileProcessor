@@ -21,7 +21,10 @@ jobs:
           distribution: 'temurin'  # Specify the JDK distribution
 
       - name: Build and package with Maven
-        run: mvn clean install package
+        run: |
+          cd control
+          mvn clean install package
+          cd ..
 
       - name: Execute SuperMain
         run: java -cp control/target/control-1.0-SNAPSHOT.jar controler.SuperMain ui--false
