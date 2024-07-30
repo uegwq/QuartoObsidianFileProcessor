@@ -95,7 +95,7 @@ public class WebsiteSidebarTextGenerator {
                 output = output + depthString + "- section: \"" + file.getName() + "\"" + System.lineSeparator()
                         + depthString + "  contents:" + System.lineSeparator();
                 findMarkdownFiles(file, markdownFiles, depth + 2);
-            } else if (file.isFile() && file.getName().endsWith(".md")) {
+            } else if (file.isFile() && (file.getName().endsWith(".md") || file.getName().endsWith(".qmd"))) {
                 output = output + depthString + OUTPUT_REGEX.formatted(
                         file.getPath().substring(startingDirectory.length() + 1))
                         .replace("\\", "/" )
