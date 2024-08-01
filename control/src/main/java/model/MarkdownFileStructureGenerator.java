@@ -123,6 +123,10 @@ public class MarkdownFileStructureGenerator {
             writer.newLine();
             writer.write("date: " + Files.getLastModifiedTime(file).toString().substring(0,10));
             writer.newLine();
+            //If file is empty then this is necessary
+            if (!reader.ready()) {
+                writer.write("---");
+            }
 
             while ((line = reader.readLine()) != null) {
                 if (line.equals("<!--IGNORED_FILE-->")) {
@@ -142,7 +146,7 @@ public class MarkdownFileStructureGenerator {
                     continue;
                 }
                 if (!hasSeenTags) {
-                    while (line.isEmpty() && (line = reader.readLine()).isEmpty()) {
+                    while (line.isEmpty() && reader.ready() && (line = reader.readLine()).isEmpty()) {
                     }
                     writer.write("---");
                     writer.newLine();
