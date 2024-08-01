@@ -86,6 +86,7 @@ public class MarkdownFileStructureGenerator {
 
         Files.createDirectories(targetPath.getParent());
         Files.copy(file, targetPath, StandardCopyOption.REPLACE_EXISTING);
+        Files.setLastModifiedTime(targetPath, Files.getLastModifiedTime(file));
 
         String fileName = file.getFileName().toString();
         String relativePath = sourceRootPath.relativize(file).toString().replace("\\", "/");

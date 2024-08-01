@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc0f2746-9dae-45b4-bef8-7d194d4148b2" name="Changes" comment="fixed file date not working when tag already existed" />
+    <list default="true" id="cc0f2746-9dae-45b4-bef8-7d194d4148b2" name="Changes" comment="fixed file date not working when tag already existed + bug in fix that empty files were not considered">
+      <change beforePath="$PROJECT_DIR$/control/src/main/java/model/MarkdownFileStructureGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/control/src/main/java/model/MarkdownFileStructureGenerator.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -204,7 +206,7 @@
       <workItem from="1722343257922" duration="703000" />
       <workItem from="1722343990706" duration="10183000" />
       <workItem from="1722530538422" duration="509000" />
-      <workItem from="1722532514089" duration="6500000" />
+      <workItem from="1722532514089" duration="7012000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -310,7 +312,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722539674511</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="fixed file date not working when tag already existed + bug in fix that empty files were not considered">
+      <option name="closed" value="true" />
+      <created>1722540191612</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1722540191612</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -338,7 +348,8 @@
     <MESSAGE value="fixed the bug with the images not loading due to a refactoring mistake" />
     <MESSAGE value="added file date" />
     <MESSAGE value="fixed file date not working when tag already existed" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed file date not working when tag already existed" />
+    <MESSAGE value="fixed file date not working when tag already existed + bug in fix that empty files were not considered" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed file date not working when tag already existed + bug in fix that empty files were not considered" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -402,6 +413,11 @@
           <url>file://$PROJECT_DIR$/control/src/main/java/model/MarkdownFileStructureGenerator.java</url>
           <line>40</line>
           <option name="timeStamp" value="70" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/control/src/main/java/model/MarkdownFileStructureGenerator.java</url>
+          <line>148</line>
+          <option name="timeStamp" value="71" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/Controll/src/main/java/controler/SuperMain.java</url>
