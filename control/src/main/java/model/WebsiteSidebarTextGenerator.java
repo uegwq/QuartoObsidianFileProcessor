@@ -7,7 +7,7 @@ public class WebsiteSidebarTextGenerator {
     private static final String OUTPUT_FORMAT = "- \"%s\"";
     private static final List<String> EXCLUDED_DIRECTORIES = Arrays.asList(
             ".obsidian", ".quarto", "_book", "public", "_site",
-            "TEMPLATES", "exportFiles", ".git"
+            "TEMPLATES", "exportFiles", ".git", ".github"
     );
 
     private static String baseDirectory = "";
@@ -79,10 +79,12 @@ public class WebsiteSidebarTextGenerator {
             String fileName = file.getName();
             String dirName = directory.getName();
             if (fileName.endsWith(".md") && fileName.startsWith(dirName)) {
-                return indentation + "  href: " + fileName + System.lineSeparator();
+                return indentation + "  href: " + file.getPath().substring(baseDirectory.length() + 1)
+                        .replace("\\", "/") + System.lineSeparator();
             }
             if (fileName.endsWith(".qmd") && fileName.startsWith(dirName)) {
-                return indentation + "  href: " + fileName + System.lineSeparator();
+                return indentation + "  href: " + file.getPath().substring(baseDirectory.length() + 1)
+                        .replace("\\", "/") + System.lineSeparator();
             }
         }
         return "";

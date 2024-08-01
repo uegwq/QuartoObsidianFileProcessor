@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc0f2746-9dae-45b4-bef8-7d194d4148b2" name="Changes" comment="added tags function where file is not edited">
-      <change afterPath="$PROJECT_DIR$/UI/src/main/java/ui/UIMain.java" afterDir="false" />
+    <list default="true" id="cc0f2746-9dae-45b4-bef8-7d194d4148b2" name="Changes" comment="refactored everything kinda">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/main/java/ui/FileProcessorUi.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/main/java/ui/FileProcessorUi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control/src/main/java/model/MarkdownFileStructureGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/control/src/main/java/model/MarkdownFileStructureGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/control/src/main/java/model/WebsiteSidebarTextGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/control/src/main/java/model/WebsiteSidebarTextGenerator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -75,6 +71,7 @@
     "Maven.Controll [clean].executor": "Run",
     "Maven.Controll [package].executor": "Run",
     "Maven.UI [clean].executor": "Run",
+    "Maven.UI [compile].executor": "Run",
     "Maven.UI [install].executor": "Run",
     "Maven.UI [org.openjfx:javafx-maven-plugin:0.0.8:run].executor": "Run",
     "Maven.UI [package].executor": "Run",
@@ -210,7 +207,7 @@
       <workItem from="1722343257922" duration="703000" />
       <workItem from="1722343990706" duration="10183000" />
       <workItem from="1722530538422" duration="509000" />
-      <workItem from="1722532514089" duration="2880000" />
+      <workItem from="1722532514089" duration="3833000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -284,7 +281,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722366345695</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="refactored everything kinda">
+      <option name="closed" value="true" />
+      <created>1722536525457</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1722536525457</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -307,7 +312,8 @@
     <MESSAGE value="fixed, that .qmd files are not detected by changing it in the MarkdownFileStructureGenerator.java" />
     <MESSAGE value="added console feedback for when changes are made" />
     <MESSAGE value="added tags function where file is not edited" />
-    <option name="LAST_COMMIT_MESSAGE" value="added tags function where file is not edited" />
+    <MESSAGE value="refactored everything kinda" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactored everything kinda" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -369,7 +375,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/control/src/main/java/model/MarkdownFileStructureGenerator.java</url>
-          <line>30</line>
+          <line>40</line>
           <option name="timeStamp" value="70" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">

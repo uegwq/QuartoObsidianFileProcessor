@@ -188,7 +188,7 @@ public class MarkdownFileStructureGenerator {
                 String replacement = "[" + linkText + "](" + fileLinksMap.get(linkText) + ")";
                 matcher.appendReplacement(result, Matcher.quoteReplacement(replacement));
             } else if (linkText.endsWith(".png") || linkText.endsWith(".jpg")) {
-                String replacement = "[](<" + linkText + ">)";
+                String replacement = "[](</" + linkText + ">)";
                 matcher.appendReplacement(result, Matcher.quoteReplacement(replacement));
             } else {
                 matcher.appendReplacement(result, Matcher.quoteReplacement(matcher.group(0)));
