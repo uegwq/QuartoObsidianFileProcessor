@@ -51,6 +51,14 @@ public class WebsiteSidebarTextGenerator {
                         .append(System.lineSeparator());
                 findMarkdownFiles(file, markdownFiles, depth + 2);
             } else if (isMarkdownFile(file)) {
+                String fileName = file.getName();
+                if (fileName.endsWith(".md") && fileName.startsWith(file.getParentFile().getName())) {
+                    continue;
+                }
+                if (fileName.endsWith(".qmd") && fileName.startsWith(file.getParentFile().getName())) {
+                    continue;
+                }
+
                 output.append(indentation)
                         .append(String.format(OUTPUT_FORMAT,
                                 file.getPath().substring(baseDirectory.length() + 1)

@@ -118,21 +118,30 @@ public class MarkdownFileStructureGenerator {
             boolean madeChanges = false;
             String line;
 
+            writer.write("---");
+            writer.newLine();
+            writer.write("date: " + Files.getLastModifiedTime(file).toString().substring(0,10));
+            writer.newLine();
+            writer.write("---");
+
             while ((line = reader.readLine()) != null) {
+                if (line.equals("<!--IGNORED_FILE-->")) {
+                    observer.notify("[info] File ignored");
+                    return;
+                }
                 if (line.equals("<!--TAGS-->")) {
                     isInTags = true;
                     observer.notify("[info] Started reading tags");
                     continue;
-                } else if (line.equals("<!--/TAGS-->")) {
+                }
+                if (line.equals("<!--/TAGS-->")) {
                     isInTags = false;
                     observer.notify("[info] Done reading tags");
                     continue;
-                } else if (line.equals("TARGET DECK")) {
+                }
+                if (line.equals("TARGET DECK")) {
                     madeChanges = applyTargetDeckTemplate(reader, writer);
                     continue;
-                } else if (line.equals("<!--IGNORED_FILE-->")) {
-                    observer.notify("[info] File ignored");
-                    return;
                 }
 
                 if (isInTags) {
