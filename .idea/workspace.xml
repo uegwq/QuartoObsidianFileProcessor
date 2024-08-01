@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc0f2746-9dae-45b4-bef8-7d194d4148b2" name="Changes" comment="fixed the bug with the images not loading due to a refactoring mistake">
+    <list default="true" id="cc0f2746-9dae-45b4-bef8-7d194d4148b2" name="Changes" comment="added file date">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/control/src/main/java/model/MarkdownFileStructureGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/control/src/main/java/model/MarkdownFileStructureGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control/src/main/java/model/WebsiteSidebarTextGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/control/src/main/java/model/WebsiteSidebarTextGenerator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -208,7 +207,7 @@
       <workItem from="1722343257922" duration="703000" />
       <workItem from="1722343990706" duration="10183000" />
       <workItem from="1722530538422" duration="509000" />
-      <workItem from="1722532514089" duration="5007000" />
+      <workItem from="1722532514089" duration="6183000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -298,7 +297,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722537323165</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="added file date">
+      <option name="closed" value="true" />
+      <created>1722538529956</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1722538529956</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -324,7 +331,8 @@
     <MESSAGE value="refactored everything kinda" />
     <MESSAGE value="fixed the bug that" />
     <MESSAGE value="fixed the bug with the images not loading due to a refactoring mistake" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed the bug with the images not loading due to a refactoring mistake" />
+    <MESSAGE value="added file date" />
+    <option name="LAST_COMMIT_MESSAGE" value="added file date" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
