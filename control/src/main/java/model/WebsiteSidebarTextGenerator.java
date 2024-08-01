@@ -3,104 +3,93 @@ package model;
 import java.io.File;
 import java.util.*;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class WebsiteSidebarTextGenerator {
-    private static String startingDirectory = "";
-    private static final String OUTPUT_REGEX = "- \"%s\"";
-    private static String output;
-    private static List<String> illegalPaths = new ArrayList<>();
-    private static void addIllegalPaths() {
-        illegalPaths = new ArrayList<>();
-        illegalPaths.add(".obsidian");
-        illegalPaths.add(".quarto");
-        illegalPaths.add("_book");
-        illegalPaths.add("public");
-        illegalPaths.add("_site");
-        illegalPaths.add("TEMPLATES");
-    }
-    public static String process(String args) {
-        addIllegalPaths();
-        // Replace with your starting directory
-        startingDirectory = args;
+    private static final String OUTPUT_FORMAT = "- \"%s\"";
+    private static final List<String> EXCLUDED_DIRECTORIES = Arrays.asList(
+            ".obsidian", ".quarto", "_book", "public", "_site",
+            "TEMPLATES", "exportFiles", ".git"
+    );
 
-        startingDirectory.replace("\"", "");
+    private static String baseDirectory = "";
+    private static StringBuilder output = new StringBuilder();
 
-        output = "";
+    public static String generateSidebarText(String directoryPath) {
+        baseDirectory = directoryPath.replace("\"", "");
+        output.setLength(0); // Clear output
 
-
-        File root = new File(startingDirectory);
+        File rootDirectory = new File(baseDirectory);
         List<String> markdownFiles = new ArrayList<>();
 
-        if (root.exists() && root.isDirectory()) {
-            // Perform DFS to find all .md files
-            findMarkdownFiles(root, markdownFiles, 6);
-
-            // Sort the files lexicographically
+        if (rootDirectory.exists() && rootDirectory.isDirectory()) {
+            findMarkdownFiles(rootDirectory, markdownFiles, 6);
             Collections.sort(markdownFiles);
-
-            // Print the files
-            for (String file : markdownFiles) {
-                System.out.println(file);
-            }
+            markdownFiles.forEach(System.out::println);
         } else {
-            return "The provided directory does not exist or is not a directory:" + System.lineSeparator() + "<" + startingDirectory + ">";
+            return "The provided directory does not exist or is not a directory:"
+                    + System.lineSeparator() + "<" + baseDirectory + ">";
         }
-        return output;
+        return output.toString();
     }
 
     private static void findMarkdownFiles(File directory, List<String> markdownFiles, int depth) {
-        String depthString = "";
-        for (int i = 0; i < depth; i++) {
-            depthString = depthString + " ";
-        }
-        List<AbstractMap.SimpleEntry<String, File>>
-                stringFileList = new ArrayList<>();
-        for (File file : directory.listFiles()) {
-            stringFileList.add(new AbstractMap.SimpleEntry<>(file.getName(), file));
-        }
-        if (stringFileList.isEmpty()) {
+        String indentation = " ".repeat(depth);
+
+        List<File> sortedFiles = getSortedFiles(directory);
+        if (sortedFiles.isEmpty()) {
             return;
         }
-        stringFileList.sort(new Comparator<AbstractMap.SimpleEntry<String, File>>() {
-            @Override
-            public int compare(AbstractMap.SimpleEntry<String, File> o1, AbstractMap.SimpleEntry<String, File> o2) {
-                String firstName = o1.getKey();
-                String secondName = o2.getKey();
-                Integer firstInt = null;
-                Integer secondInt = null;
-                try {
-                    firstInt = Integer.parseInt(firstName.split("\\s+")[0]);
-                    secondInt = Integer.parseInt(secondName.split("\\s+")[0]);
-                } catch (Exception exception) {
-                    return firstName.compareTo(secondName);
-                }
-                if (secondInt > firstInt) {
-                    return -1;
-                }
-                if (secondInt.equals(firstInt)) {
-                    return 0;
-                }
-                return 1;
-            }
-        });
 
-        for (AbstractMap.SimpleEntry<String, File> fileEntry : stringFileList) {
-            File file = fileEntry.getValue();
+        for (File file : sortedFiles) {
             if (file.isDirectory()) {
-                //Skip file if the file is an illegal directory that shall not be processed
-                if (illegalPaths.contains(file.getName())) {
+                if (EXCLUDED_DIRECTORIES.contains(file.getName())) {
                     continue;
                 }
-                output = output + depthString + "- section: \"" + file.getName() + "\"" + System.lineSeparator()
-                        + depthString + "  contents:" + System.lineSeparator();
+                output.append(indentation).append("- section: \"")
+                        .append(file.getName()).append("\"").append(System.lineSeparator())
+                        .append(getHref(file, indentation))
+                        .append(indentation).append("  contents:")
+                        .append(System.lineSeparator());
                 findMarkdownFiles(file, markdownFiles, depth + 2);
-            } else if (file.isFile() && (file.getName().endsWith(".md") || file.getName().endsWith(".qmd"))) {
-                output = output + depthString + OUTPUT_REGEX.formatted(
-                        file.getPath().substring(startingDirectory.length() + 1))
-                        .replace("\\", "/" )
-                + System.lineSeparator();
+            } else if (isMarkdownFile(file)) {
+                output.append(indentation)
+                        .append(String.format(OUTPUT_FORMAT,
+                                file.getPath().substring(baseDirectory.length() + 1)
+                                        .replace("\\", "/")))
+                        .append(System.lineSeparator());
             }
         }
+    }
+
+    private static List<File> getSortedFiles(File directory) {
+        List<File> fileList = Arrays.asList(directory.listFiles());
+        fileList.sort((file1, file2) -> {
+            try {
+                int firstNum = Integer.parseInt(file1.getName().split("\\s+")[0]);
+                int secondNum = Integer.parseInt(file2.getName().split("\\s+")[0]);
+                return Integer.compare(firstNum, secondNum);
+            } catch (NumberFormatException e) {
+                return file1.getName().compareTo(file2.getName());
+            }
+        });
+        return fileList;
+    }
+
+    private static String getHref(File directory, String indentation) {
+        for (File file : directory.listFiles()) {
+            String fileName = file.getName();
+            String dirName = directory.getName();
+            if (fileName.endsWith(".md") && fileName.startsWith(dirName)) {
+                return indentation + "  href: " + fileName + System.lineSeparator();
+            }
+            if (fileName.endsWith(".qmd") && fileName.startsWith(dirName)) {
+                return indentation + "  href: " + fileName + System.lineSeparator();
+            }
+        }
+        return "";
+    }
+
+    private static boolean isMarkdownFile(File file) {
+        String fileName = file.getName();
+        return fileName.endsWith(".md") || fileName.endsWith(".qmd");
     }
 }

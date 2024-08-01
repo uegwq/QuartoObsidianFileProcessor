@@ -17,14 +17,7 @@ public class FileProcessorUi extends Application {
     private static boolean checkboxValue = false;
     TextArea outputArea = new TextArea();
     public void addTextToField(String inputText) {
-        Thread updateText = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                outputArea.appendText(System.lineSeparator() + inputText);
-            }
-        });
-        updateText.setPriority(Thread.MAX_PRIORITY);
-        updateText.start();
+        outputArea.appendText(System.lineSeparator() + inputText);
     }
     @Override
     public void start(Stage primaryStage) {
@@ -58,7 +51,7 @@ public class FileProcessorUi extends Application {
         okButton.setOnAction(event -> {
             String path = pathField.getText();
             try {
-                String content;
+                String content = "";
                 if (!generateNewMdDirectory.isSelected()) {
                     content = processFile(path);
                     statusLabel.setText("berechnet website content Struktur...");
@@ -66,7 +59,6 @@ public class FileProcessorUi extends Application {
                     statusLabel.setText("berechnet neues Repository...");
                     MarkdownFileStructureGenerator generator = new MarkdownFileStructureGenerator(new TextFieldMessageObserver(this));
                     generator.generateFileStructure(path);
-                    content = "hello this is work in process!";
                 }
                 outputArea.appendText(content);
             } catch (Exception e) {
@@ -91,7 +83,7 @@ public class FileProcessorUi extends Application {
     // Beispielmethode zur Dateiverarbeitung
     private String processFile(String path) throws IOException {
         // In dieser Beispielmethode lesen wir einfach den Inhalt der Datei.
-        return WebsiteSidebarTextGenerator.process(path);
+        return WebsiteSidebarTextGenerator.generateSidebarText(path);
     }
 
 
