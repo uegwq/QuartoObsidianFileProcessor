@@ -54,6 +54,7 @@ public class FileProcessorUi extends Application {
                 String content = "";
                 if (!generateNewMdDirectory.isSelected()) {
                     content = processFile(path);
+                    outputArea.clear();
                     statusLabel.setText("berechnet website content Struktur...");
                 } else {
                     statusLabel.setText("berechnet neues Repository...");

@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc0f2746-9dae-45b4-bef8-7d194d4148b2" name="Changes" comment="fixed file date not working when tag already existed + bug in fix that empty files were not considered">
-      <change beforePath="$PROJECT_DIR$/control/src/main/java/model/MarkdownFileStructureGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/control/src/main/java/model/MarkdownFileStructureGenerator.java" afterDir="false" />
+    <list default="true" id="cc0f2746-9dae-45b4-bef8-7d194d4148b2" name="Changes" comment="fixed that I forgot to change the file metadata for the last editing time when copying so all files were last editied &quot;now&quot;">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,61 +43,61 @@
     <option name="showMembers" value="true" />
     <option name="showScratchesAndConsoles" value="false" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.FileProcessorApp.executor": "Run",
-    "Application.FileProcessorUi (1).executor": "Run",
-    "Application.FileProcessorUi.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.SuperMain.executor": "Run",
-    "Application.UIMain.executor": "Run",
-    "Application.controler.SuperMain.executor": "Run",
-    "JAR Application.Controll-1.0-SNAPSHOT.jar.executor": "Run",
-    "Maven.ChapterGenerator [--version].executor": "Run",
-    "Maven.ChapterGenerator [clean,compile...].executor": "Run",
-    "Maven.ChapterGenerator [clean].executor": "Run",
-    "Maven.ChapterGenerator [compile].executor": "Run",
-    "Maven.ChapterGenerator [deploy].executor": "Run",
-    "Maven.ChapterGenerator [install].executor": "Run",
-    "Maven.ChapterGenerator [org.apache.maven.plugins:maven-assembly-plugin:3.6.0:single].executor": "Run",
-    "Maven.ChapterGenerator [org.apache.maven.plugins:maven-deploy-plugin:3.1.1:deploy-file].executor": "Run",
-    "Maven.ChapterGenerator [org.apache.maven.plugins:maven-deploy-plugin:3.1.1:deploy].executor": "Run",
-    "Maven.ChapterGenerator [org.apache.maven.plugins:maven-deploy-plugin:3.1.1:help].executor": "Run",
-    "Maven.ChapterGenerator [org.apache.maven.plugins:maven-install-plugin:3.1.1:install].executor": "Run",
-    "Maven.ChapterGenerator [org.openjfx:javafx-maven-plugin:0.0.8:run].executor": "Run",
-    "Maven.ChapterGenerator [package].executor": "Run",
-    "Maven.ChapterGenerator [set,MAVEN_OPTS=...].executor": "Run",
-    "Maven.ChapterGenerator [verify].executor": "Run",
-    "Maven.Controll [clean].executor": "Run",
-    "Maven.Controll [package].executor": "Run",
-    "Maven.UI [clean].executor": "Run",
-    "Maven.UI [compile].executor": "Run",
-    "Maven.UI [install].executor": "Run",
-    "Maven.UI [org.openjfx:javafx-maven-plugin:0.0.8:run].executor": "Run",
-    "Maven.UI [package].executor": "Run",
-    "Maven.control [clean].executor": "Run",
-    "Maven.control [deploy].executor": "Run",
-    "Maven.control [install].executor": "Run",
-    "Maven.control [package].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "jdk.selected.JAVA_MODULE": "22",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "C:/Users/Philip Fahrer/IdeaProjects/ChapterGenerator/Controll/src/main/java/org/example/Main.java",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.53333336",
-    "settings.editor.selected.configurable": "MavenSettings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.FileProcessorApp.executor&quot;: &quot;Run&quot;,
+    &quot;Application.FileProcessorUi (1).executor&quot;: &quot;Run&quot;,
+    &quot;Application.FileProcessorUi.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.SuperMain.executor&quot;: &quot;Run&quot;,
+    &quot;Application.UIMain.executor&quot;: &quot;Run&quot;,
+    &quot;Application.controler.SuperMain.executor&quot;: &quot;Run&quot;,
+    &quot;JAR Application.Controll-1.0-SNAPSHOT.jar.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ChapterGenerator [--version].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ChapterGenerator [clean,compile...].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ChapterGenerator [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ChapterGenerator [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ChapterGenerator [deploy].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ChapterGenerator [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ChapterGenerator [org.apache.maven.plugins:maven-assembly-plugin:3.6.0:single].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ChapterGenerator [org.apache.maven.plugins:maven-deploy-plugin:3.1.1:deploy-file].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ChapterGenerator [org.apache.maven.plugins:maven-deploy-plugin:3.1.1:deploy].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ChapterGenerator [org.apache.maven.plugins:maven-deploy-plugin:3.1.1:help].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ChapterGenerator [org.apache.maven.plugins:maven-install-plugin:3.1.1:install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ChapterGenerator [org.openjfx:javafx-maven-plugin:0.0.8:run].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ChapterGenerator [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ChapterGenerator [set,MAVEN_OPTS=...].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ChapterGenerator [verify].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Controll [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Controll [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.UI [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.UI [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.UI [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.UI [org.openjfx:javafx-maven-plugin:0.0.8:run].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.UI [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.control [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.control [deploy].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.control [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.control [package].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;22&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Philip Fahrer/IdeaProjects/ChapterGenerator/Controll/src/main/java/org/example/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.53333336&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Philip Fahrer\IdeaProjects\ChapterGenerator\UI\src" />
@@ -206,7 +207,8 @@
       <workItem from="1722343257922" duration="703000" />
       <workItem from="1722343990706" duration="10183000" />
       <workItem from="1722530538422" duration="509000" />
-      <workItem from="1722532514089" duration="7012000" />
+      <workItem from="1722532514089" duration="7709000" />
+      <workItem from="1722597463490" duration="1635000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -320,7 +322,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722540191612</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="fixed that I forgot to change the file metadata for the last editing time when copying so all files were last editied &quot;now&quot;">
+      <option name="closed" value="true" />
+      <created>1722540522741</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1722540522741</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -349,7 +359,8 @@
     <MESSAGE value="added file date" />
     <MESSAGE value="fixed file date not working when tag already existed" />
     <MESSAGE value="fixed file date not working when tag already existed + bug in fix that empty files were not considered" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed file date not working when tag already existed + bug in fix that empty files were not considered" />
+    <MESSAGE value="fixed that I forgot to change the file metadata for the last editing time when copying so all files were last editied &quot;now&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed that I forgot to change the file metadata for the last editing time when copying so all files were last editied &quot;now&quot;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
