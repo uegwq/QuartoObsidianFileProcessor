@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc0f2746-9dae-45b4-bef8-7d194d4148b2" name="Changes" comment="fixed that I was removing all &quot;&gt;&quot; no matter the context">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control/src/main/java/model/MarkdownFileStructureGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/control/src/main/java/model/MarkdownFileStructureGenerator.java" afterDir="false" />
-    </list>
+    <list default="true" id="cc0f2746-9dae-45b4-bef8-7d194d4148b2" name="Changes" comment="fixed that quarto has very few callout type and added a conversion from obisidan to quarto" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -213,7 +210,7 @@
       <workItem from="1722621459548" duration="605000" />
       <workItem from="1723452375864" duration="40000" />
       <workItem from="1723829660530" duration="28000" />
-      <workItem from="1724835219435" duration="3823000" />
+      <workItem from="1724835219435" duration="4158000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -359,7 +356,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724838338771</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="fixed that quarto has very few callout type and added a conversion from obisidan to quarto">
+      <option name="closed" value="true" />
+      <created>1724839194912</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1724839194912</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -392,7 +397,8 @@
     <MESSAGE value="added clearing function to output area for website sidebar text generation ui" />
     <MESSAGE value="added callout block recognition" />
     <MESSAGE value="fixed that I was removing all &quot;&gt;&quot; no matter the context" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed that I was removing all &quot;&gt;&quot; no matter the context" />
+    <MESSAGE value="fixed that quarto has very few callout type and added a conversion from obisidan to quarto" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed that quarto has very few callout type and added a conversion from obisidan to quarto" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -465,7 +471,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/control/src/main/java/model/MarkdownFileStructureGenerator.java</url>
-          <line>202</line>
+          <line>201</line>
           <option name="timeStamp" value="77" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">

@@ -213,6 +213,7 @@ public class MarkdownFileStructureGenerator {
                     for (int i = 0; i < calloutDepth - geCharCount; i++) {
                         writer.write(":::");
                         writer.newLine();
+                        writer.newLine();
                     }
                     calloutDepth = geCharCount;
                 }
