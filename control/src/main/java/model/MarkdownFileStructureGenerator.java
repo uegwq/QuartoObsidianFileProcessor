@@ -118,6 +118,7 @@ public class MarkdownFileStructureGenerator {
             boolean isInTags = false;
             boolean madeChanges = false;
             boolean hasSeenTags = false;
+            int calloutDepth = 0;
             String line;
 
             writer.write("---");
@@ -166,7 +167,48 @@ public class MarkdownFileStructureGenerator {
                 }
 
                 String modifiedLine = replaceMarkdownLinks(line);
-                writer.write(modifiedLine);
+
+                Pattern calloutPattern = Pattern.compile("\\s*>\\s*\\[!(\\w+)]\\s*(.*)");
+                Pattern nestedCalloutPattern = Pattern.compile("\\s*>\\s*>\\s*\\[!(\\w+)]\\s*(.*)");
+
+                // Prüfen, ob die Zeile ein Callout beginnt
+                Matcher matcher = calloutPattern.matcher(modifiedLine);
+                Matcher nestedMatcher = nestedCalloutPattern.matcher(modifiedLine);
+
+                if (nestedMatcher.find()) {
+                    // Verschachtelter Callout gefunden
+                    String calloutType = nestedMatcher.group(1);  // z.B. "info" oder "warning"
+                    String title = calloutType;
+                    if (matcher.groupCount() > 1) {
+                        title = matcher.group(2).trim();  // Titel des Callouts
+                    }
+                    modifiedLine = "::: {.callout-"+calloutType+" title=\""+title+"\"}";
+                    calloutDepth = 2;
+                    writer.write(modifiedLine);
+                    writer.newLine();
+                    continue;
+                }
+                else if (matcher.find()) {
+                    // Einfache Callout-Zeile gefunden
+                    String calloutType = matcher.group(1);  // z.B. "info" oder "warning"
+                    String title = calloutType;
+                    title = matcher.group(2).trim();  // Titel des Callouts
+                    modifiedLine = "::: {.callout-"+calloutType+" title=\""+title+"\"}";
+                    calloutDepth = 1;
+                    writer.write(modifiedLine);
+                    writer.newLine();
+                    continue;
+                }
+                    int geCharCount = modifiedLine.length() - modifiedLine.replace(">", "").length();
+                if (geCharCount < calloutDepth) {
+                    for (int i = 0; i < calloutDepth - geCharCount; i++) {
+                        writer.write(":::");
+                        writer.newLine();
+                    }
+                    calloutDepth = geCharCount;
+                }
+
+                writer.write(modifiedLine.replace(">", ""));
                 writer.newLine();
 
                 if (!line.isEmpty()) {
