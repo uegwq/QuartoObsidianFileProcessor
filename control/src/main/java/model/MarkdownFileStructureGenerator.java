@@ -14,9 +14,20 @@ public class MarkdownFileStructureGenerator {
     private Path sourceRootPath;
     private Path targetRootPath;
     private final MessageObserver observer;
+    private Map<String,String> calloutTitleMap = new HashMap<>();
 
     public MarkdownFileStructureGenerator(MessageObserver observer) {
         this.observer = observer;
+        calloutTitleMap.put("info", "note");
+        calloutTitleMap.put("abstract", "note");
+        calloutTitleMap.put("todo", "note");
+        calloutTitleMap.put("success", "tip");
+        calloutTitleMap.put("question", "caution");
+        calloutTitleMap.put("failure", "important");
+        calloutTitleMap.put("danger", "important");
+        calloutTitleMap.put("bug", "important");
+        calloutTitleMap.put("example", "note");
+        calloutTitleMap.put("quote", "tip");
     }
 
     public void generateFileStructure(String rootPath) throws InvalidPathException, IOException {
@@ -178,23 +189,23 @@ public class MarkdownFileStructureGenerator {
                 if (nestedMatcher.find()) {
                     // Verschachtelter Callout gefunden
                     String calloutType = nestedMatcher.group(1);  // z.B. "info" oder "warning"
-                    String title = calloutType;
-                    if (matcher.groupCount() > 1) {
-                        title = matcher.group(2).trim();  // Titel des Callouts
-                    }
+                    calloutType = quartoCalloutTitle(calloutType);
+                    String title = matcher.group(2).trim();  // Titel des Callouts
                     modifiedLine = "::: {.callout-"+calloutType+" title=\""+title+"\"}";
                     calloutDepth = 2;
                     writer.write(modifiedLine);
+                    writer.newLine();
                     continue;
                 }
                 else if (matcher.find()) {
                     // Einfache Callout-Zeile gefunden
                     String calloutType = matcher.group(1);  // z.B. "info" oder "warning"
-                    String title = calloutType;
-                    title = matcher.group(2).trim();  // Titel des Callouts
+                    calloutType = quartoCalloutTitle(calloutType);
+                    String title = matcher.group(2).trim();  // Titel des Callouts
                     modifiedLine = "::: {.callout-"+calloutType+" title=\""+title+"\"}";
                     calloutDepth = 1;
                     writer.write(modifiedLine);
+                    writer.newLine();
                     continue;
                 }
                     int geCharCount = modifiedLine.length() - modifiedLine.replace(">", "").length();
@@ -274,5 +285,12 @@ public class MarkdownFileStructureGenerator {
         } else {
             observer.notify("[warning] The original file is not (over)writable: " + originalFile.toString());
         }
+    }
+
+    private String quartoCalloutTitle(String input) {
+        if (this.calloutTitleMap.containsKey(input.toLowerCase())) {
+            return calloutTitleMap.get(input);
+        }
+        return input;
     }
 }
