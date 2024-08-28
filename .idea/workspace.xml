@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc0f2746-9dae-45b4-bef8-7d194d4148b2" name="Changes" comment="added clearing function to output area for website sidebar text generation ui">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="cc0f2746-9dae-45b4-bef8-7d194d4148b2" name="Changes" comment="added callout block recognition">
       <change beforePath="$PROJECT_DIR$/control/src/main/java/model/MarkdownFileStructureGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/control/src/main/java/model/MarkdownFileStructureGenerator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -49,7 +48,7 @@
     "Application.FileProcessorUi (1).executor": "Run",
     "Application.FileProcessorUi.executor": "Run",
     "Application.Main.executor": "Run",
-    "Application.SuperMain.executor": "Debug",
+    "Application.SuperMain.executor": "Run",
     "Application.UIMain.executor": "Run",
     "Application.controler.SuperMain.executor": "Run",
     "JAR Application.Controll-1.0-SNAPSHOT.jar.executor": "Run",
@@ -213,7 +212,7 @@
       <workItem from="1722621459548" duration="605000" />
       <workItem from="1723452375864" duration="40000" />
       <workItem from="1723829660530" duration="28000" />
-      <workItem from="1724835219435" duration="2527000" />
+      <workItem from="1724835219435" duration="3049000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -343,7 +342,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722621388216</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="added callout block recognition">
+      <option name="closed" value="true" />
+      <created>1724837974728</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1724837974728</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -374,7 +381,8 @@
     <MESSAGE value="fixed file date not working when tag already existed + bug in fix that empty files were not considered" />
     <MESSAGE value="fixed that I forgot to change the file metadata for the last editing time when copying so all files were last editied &quot;now&quot;" />
     <MESSAGE value="added clearing function to output area for website sidebar text generation ui" />
-    <option name="LAST_COMMIT_MESSAGE" value="added clearing function to output area for website sidebar text generation ui" />
+    <MESSAGE value="added callout block recognition" />
+    <option name="LAST_COMMIT_MESSAGE" value="added callout block recognition" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

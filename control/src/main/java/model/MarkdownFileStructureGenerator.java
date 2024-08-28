@@ -185,7 +185,6 @@ public class MarkdownFileStructureGenerator {
                     modifiedLine = "::: {.callout-"+calloutType+" title=\""+title+"\"}";
                     calloutDepth = 2;
                     writer.write(modifiedLine);
-                    writer.newLine();
                     continue;
                 }
                 else if (matcher.find()) {
@@ -196,7 +195,6 @@ public class MarkdownFileStructureGenerator {
                     modifiedLine = "::: {.callout-"+calloutType+" title=\""+title+"\"}";
                     calloutDepth = 1;
                     writer.write(modifiedLine);
-                    writer.newLine();
                     continue;
                 }
                     int geCharCount = modifiedLine.length() - modifiedLine.replace(">", "").length();
@@ -207,8 +205,11 @@ public class MarkdownFileStructureGenerator {
                     }
                     calloutDepth = geCharCount;
                 }
+                if (calloutDepth > 0) {
+                    modifiedLine = modifiedLine.replace(">", "");
+                }
 
-                writer.write(modifiedLine.replace(">", ""));
+                writer.write(modifiedLine);
                 writer.newLine();
 
                 if (!line.isEmpty()) {
